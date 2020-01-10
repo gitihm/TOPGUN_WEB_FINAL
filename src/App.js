@@ -44,13 +44,41 @@ function App() {
     }
     get()},[]
 );
-  
+  var home = [ {
+    team : "04",
+    latitude: 19.031294,
+    longitude: 99.897926,
+  },{
+    team : "07",
+    latitude: 19.176391,
+    longitude: 99.901908,
+  },{
+    team : "22",
+    latitude: 19.187149,
+    longitude: 99.812571,
+  },{
+    team : "25",
+    latitude: 19.187149,
+    longitude: 99.88926,
+  }]
   var personlist = 
     {
       latitude: 19.032236,
       longitude: 99.904305,
     }
   
+    function getHOME(home) {
+      home.map(_=>{
+        return (
+          <>
+            <Marker key="ASDASd" longitude={_.longitude} latitude={_.latitude} >
+              <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'green' }}  ></i> 
+            </Marker>
+          </>
+        )
+      })
+      
+  }
   function getPMLocation(popupPM) {
       return (
         <>
