@@ -3,6 +3,7 @@ import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
 import axios from 'axios'
 import { Icon } from 'antd';
 import Item from 'antd/lib/list/Item';
+import './App.css'
 
 function App() {
   const [isLoadding , setIsloadding] = useState(false
@@ -41,8 +42,8 @@ function App() {
       await setPm25InfoFour({ location : { name: "พระนาคปรก สธ", latitude : pm25Four.data.location.latitude , longitude : pm25Four.data.location.longitude }, pm : pm25Four.data.pm,time : pm25Four.data.ts.split('T')[1].split('+')[0] , date : pm25Four.data.ts.split('T')[0]})
      setIsloadding(true)
     }
-    get()}
-, []);
+    get()},[]
+);
   
   var personlist = 
     {
@@ -54,12 +55,20 @@ function App() {
       return (
         <>
           <Marker key="ASDASd" longitude={+popupPM.location.longitude} latitude={+popupPM.location.latitude} >
-            { popupPM.pm >= 150 && (
-                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
-              )}
-            
-            { popupPM.pm < 150 && (
+              { popupPM.pm >= 0 && 25 >= popupPM.pm && (
                 <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'blue' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
+              )} 
+              { popupPM.pm >= 26 && 50 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'green' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
+              )}
+              { popupPM.pm >= 51 && 100 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'yellow' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
+              )} 
+              { popupPM.pm >= 101 && 200 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'orange' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
+              )} 
+              { popupPM.pm >= 201 && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
               )}
           </Marker>
           {popupInfo && (
@@ -80,7 +89,21 @@ function App() {
     return (
       <>
         <Marker key="ASDASd" longitude={+popupPM.location.longitude} latitude={+popupPM.location.latitude} >
-          <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo1(true)}} onMouseLeave={()=>{ setPopupInfo1(false)}} ></i>
+          { popupPM.pm >= 0 && 25 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'blue' }} onMouseEnter={()=>{setPopupInfo1(true)}} onMouseLeave={()=>{ setPopupInfo1(false)}} ></i>
+              )} 
+              { popupPM.pm >= 26 && 50 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'green' }} onMouseEnter={()=>{setPopupInfo1(true)}} onMouseLeave={()=>{ setPopupInfo1(false)}} ></i>
+              )}
+              { popupPM.pm >= 51 && 100 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'yellow' }} onMouseEnter={()=>{setPopupInfo1(true)}} onMouseLeave={()=>{ setPopupInfo1(false)}} ></i>
+              )} 
+              { popupPM.pm >= 101 && 200 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'orange' }} onMouseEnter={()=>{setPopupInfo1(true)}} onMouseLeave={()=>{ setPopupInfo1(false)}} ></i>
+              )} 
+              { popupPM.pm >= 201 && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo1(true)}} onMouseLeave={()=>{ setPopupInfo1(false)}} ></i>
+              )}
         </Marker>
         {popupInfo1 && (
           <Popup tipSize={5}
@@ -100,7 +123,21 @@ function getPMLocationss(popupPM) {
   return (
     <>
       <Marker key="ASDASd" longitude={+popupPM.location.longitude} latitude={+popupPM.location.latitude} >
-        <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo2(true)}} onMouseLeave={()=>{ setPopupInfo2(false)}} ></i>
+      { popupPM.pm >= 0 && 25 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'blue' }} onMouseEnter={()=>{setPopupInfo2(true)}} onMouseLeave={()=>{ setPopupInfo2(false)}} ></i>
+              )} 
+              { popupPM.pm >= 26 && 50 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'green' }} onMouseEnter={()=>{setPopupInfo2(true)}} onMouseLeave={()=>{ setPopupInfo2(false)}} ></i>
+              )}
+              { popupPM.pm >= 51 && 100 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'yellow' }} onMouseEnter={()=>{setPopupInfo2(true)}} onMouseLeave={()=>{ setPopupInfo2(false)}} ></i>
+              )} 
+              { popupPM.pm >= 101 && 200 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'orange' }} onMouseEnter={()=>{setPopupInfo2(true)}} onMouseLeave={()=>{ setPopupInfo2(false)}} ></i>
+              )} 
+              { popupPM.pm >= 201 && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo2(true)}} onMouseLeave={()=>{ setPopupInfo2(false)}} ></i>
+              )}
       </Marker>
       {popupInfo2 && (
         <Popup tipSize={5}
@@ -120,7 +157,21 @@ function getPMLocationsss(popupPM) {
   return (
     <>
       <Marker key="ASDASd" longitude={+popupPM.location.longitude} latitude={+popupPM.location.latitude} >
-        <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo3(true)}} onMouseLeave={()=>{ setPopupInfo3(false)}} ></i>
+      { popupPM.pm >= 0 && 25 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'blue' }} onMouseEnter={()=>{setPopupInfo3(true)}} onMouseLeave={()=>{ setPopupInfo3(false)}} ></i>
+              )} 
+              { popupPM.pm >= 26 && 50 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'green' }} onMouseEnter={()=>{setPopupInfo3(true)}} onMouseLeave={()=>{ setPopupInfo3(false)}} ></i>
+              )}
+              { popupPM.pm >= 51 && 100 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'yellow' }} onMouseEnter={()=>{setPopupInfo3(true)}} onMouseLeave={()=>{ setPopupInfo3(false)}} ></i>
+              )} 
+              { popupPM.pm >= 101 && 200 >= popupPM.pm && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'orange' }} onMouseEnter={()=>{setPopupInfo3(true)}} onMouseLeave={()=>{ setPopupInfo3(false)}} ></i>
+              )} 
+              { popupPM.pm >= 201 && (
+                <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo3(true)}} onMouseLeave={()=>{ setPopupInfo3(false)}} ></i>
+              )}
       </Marker>
       {popupInfo3 && (
         <Popup tipSize={5}
@@ -140,11 +191,17 @@ function getPMLocationsss(popupPM) {
       return (
         <>
           <Marker key="asd" longitude={person.longitude} latitude={person.latitude} >
-            { trackPerson.event_code === 8 && (
+            { trackPerson.event_code === 255 && (
               <i class='fas fa-street-view' style={{ fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPeople(true)}} onMouseLeave={()=>{setPeople(false)}}></i>
             )}
-            { trackPerson.event_code === 5 && (
-              <i class='fas fa-street-view' style={{ fontSize: '25px', color: 'green' }} onMouseEnter={()=>{setPeople(true)}} onMouseLeave={()=>{setPeople(false)}}></i>
+            { trackPerson.event_code === 128 && (
+              <i class='fas fa-street-view' style={{ fontSize: '25px', color: 'orange' }} onMouseEnter={()=>{setPeople(true)}} onMouseLeave={()=>{setPeople(false)}}></i>
+            )}
+            { trackPerson.event_code === 8 && (
+              <i class='fas fa-street-view' style={{ fontSize: '25px', color: 'yellow' }} onMouseEnter={()=>{setPeople(true)}} onMouseLeave={()=>{setPeople(false)}}></i>
+            )}
+            { trackPerson.event_code === 0 && (
+              <i class='fas fa-street-view' style={{ fontSize: '25px', color: "green" }} onMouseEnter={()=>{setPeople(true)}} onMouseLeave={()=>{setPeople(false)}}></i>
             )}
           </Marker>
 
@@ -155,8 +212,15 @@ function getPMLocationsss(popupPM) {
               latitude={personlist.latitude}
               onMouseLeave={() => setPeople(false)}
               closeOnClick={false}>
-               <p><strong>{trackPerson.mac_addr}</strong><hr/>Date : {trackPerson.date.split(':')[2]}-{trackPerson.date.split(':')[1]}-{trackPerson.date.split(':')[0]} <br/> Time : {trackPerson.time}
-               <br/>Status: {trackPerson.event_code ==8 &&(<h2>ล้ม</h2>)} {trackPerson.event_code ==16 && (<h2>เดิน</h2>)} <br /></p>
+               <p><strong>{trackPerson.mac_addr}</strong><hr/>Date : {trackPerson.date.split('-')[2]}-{trackPerson.date.split('-')[1]}-{trackPerson.date.split('-')[0]} <br/> Time : {trackPerson.time}
+               <br/>
+               <hr/>
+               {trackPerson.event_code ==255 &&(<h3 className = "App">สถานะ : สะดุดล้ม</h3>)} 
+               {trackPerson.event_code ==128 && (<h3 className = "App">สถานะ : เป็นลม</h3>)} 
+               {trackPerson.event_code ==8 &&(<h3 className = "App">สถานะ : สลบ</h3>)} 
+               {trackPerson.event_code ==0 && (<h3 className = "App">สถานะ : ปกติ</h3>)} 
+               <hr/>
+               </p>
        </Popup>
           )}
 
@@ -175,29 +239,13 @@ if(isLoadding&&pm25InfoOne.length!=0){
       {getPMLocationss(pm25InfoThree)}
       {getPMLocationsss(pm25InfoFour)}
       {getStatusPerson(personlist,trackPerson)}
-      
-      {/* <Marker key="ASDASd" longitude={pm25InfoOne.location.longitude} latitude={pm25InfoOne.location.latitude} >
-            <i class='fas fa-map-marker-alt' style={{fontSize: '25px', color: 'red' }} onMouseEnter={()=>{setPopupInfo(true)}} onMouseLeave={()=>{ setPopupInfo(false)}} ></i>
-          </Marker>
-          {popupInfo && (
-            <Popup tipSize={5}
-              anchor="bottom"
-              longitude={pm25InfoOne.location.longitude}
-              latitude={pm25InfoOne.location.latitude}
-              onMouseLeave={() => setPopupInfo(false)}
-              closeOnClick={false}>
-              <p>PM2.5: 12 µg/m3 <br /></p>
-            </Popup>
-          )} */}
-      {/* {getStatusPerson()} */} */}
-      
     </ReactMapGL>
 );
 }
 else {
   return(
 <div className="main">
-      <div className="parent">
+  <div className="parent">
         <Icon type="loading" style={{ fontSize: '150px', color: '#08c' }}/> 
       </div>
 </div>)
