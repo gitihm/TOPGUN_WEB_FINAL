@@ -39,7 +39,7 @@ function App() {
       let pm25Three  = await axios.get('http://202.139.192.164/api/pm25_data/46')
       await setPm25InfoThree({ location : { name: "วัดศรีโคมคำ",latitude : pm25Three.data.location.latitude , longitude : pm25Three.data.location.longitude }, pm : pm25Three.data.pm,time : pm25Three.data.ts.split('T')[1].split('+')[0] , date : pm25Three.data.ts.split('T')[0]})
       let pm25Four  = await axios.get('http://202.139.192.164/api/pm25_data/47')
-      await setPm25InfoFour({ location : { name: "พระนาคปรก สธ", latitude : pm25Four.data.location.latitude , longitude : pm25Four.data.location.longitude }, pm : pm25Four.data.pm,time : pm25Four.data.ts.split('T')[1].split('+')[0] , date : pm25Four.data.ts.split('T')[0]})
+      await setPm25InfoFour({ location : { name: "พระนาคปรก สธ", latitude : 19.031294 , longitude : 99.901908 }, pm :99,time : 12:33 , date : 01/01/2563})
      setIsloadding(true)
     }
     get()},[]
