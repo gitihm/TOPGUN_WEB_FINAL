@@ -68,7 +68,7 @@ function App() {
     }
   
     function getHOME(home) {
-      home.map(_=>{
+      return home.map(_=>{
         return (
           <>
             <Marker key="ASDASd" longitude={_.longitude} latitude={_.latitude} >
@@ -266,6 +266,7 @@ if(isLoadding&&pm25InfoOne.length!=0){
       {getPMLocations(pm25InfoTwo)}
       {getPMLocationss(pm25InfoThree)}
       {getPMLocationsss(pm25InfoFour)}
+      {getHOME(home)}
       {getStatusPerson(personlist,trackPerson)}
     </ReactMapGL>
 );
