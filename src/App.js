@@ -6,7 +6,7 @@ import Item from 'antd/lib/list/Item';
 import './App.css'
 
 function App() {
-  const [isLoadding , setIsloadding] = useState(false
+  const [isLoadding , setIsloadding] = useState(true
     )
   const [popupInfo, setPopupInfo] = useState(false);
   const [popupInfo1, setPopupInfo1] = useState(false);
